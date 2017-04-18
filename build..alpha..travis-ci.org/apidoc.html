@@ -1,0 +1,1156 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/CascadeEnergy/dynamoDb-marshaler#readme"
+
+    >dynamodb-marshaler (v2.0.0)</a>
+</h1>
+<h4>Translates sane javascript objects (and JSON) into DynamoDb format and vice versa.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.dynamodb-marshaler">module dynamodb-marshaler</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.ensureItemIsObject">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>ensureItemIsObject
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.marshal">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>marshal
+            <span class="apidocSignatureSpan">(target)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.marshalItem">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>marshalItem
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.marshalJson">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>marshalJson
+            <span class="apidocSignatureSpan">(json)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.toDDB">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>toDDB
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.toJS">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>toJS
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.unexpectedItemHandler">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>unexpectedItemHandler
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.unmarshal">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>unmarshal
+            <span class="apidocSignatureSpan">(target)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.unmarshalItem">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>unmarshalItem
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.unmarshalJson">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>unmarshalJson
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">dynamodb-marshaler.</span>marshalingCommands</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">dynamodb-marshaler.</span>unmarshalingCommands</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.dynamodb-marshaler.ensureItemIsObject">module dynamodb-marshaler.ensureItemIsObject</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.ensureItemIsObject.ensureItemIsObject">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>ensureItemIsObject
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.dynamodb-marshaler.marshal">module dynamodb-marshaler.marshal</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.marshal.marshal">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>marshal
+            <span class="apidocSignatureSpan">(target)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.dynamodb-marshaler.marshalItem">module dynamodb-marshaler.marshalItem</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.marshalItem.marshalItem">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>marshalItem
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.dynamodb-marshaler.marshalJson">module dynamodb-marshaler.marshalJson</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.marshalJson.marshalJson">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>marshalJson
+            <span class="apidocSignatureSpan">(json)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.dynamodb-marshaler.marshalingCommands">module dynamodb-marshaler.marshalingCommands</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.marshalingCommands.0">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.marshalingCommands.</span>0
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.marshalingCommands.1">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.marshalingCommands.</span>1
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.marshalingCommands.2">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.marshalingCommands.</span>2
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.marshalingCommands.3">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.marshalingCommands.</span>3
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.marshalingCommands.4">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.marshalingCommands.</span>4
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.marshalingCommands.5">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.marshalingCommands.</span>5
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.marshalingCommands.6">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.marshalingCommands.</span>6
+            <span class="apidocSignatureSpan">(item, marshal)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.marshalingCommands.7">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.marshalingCommands.</span>7
+            <span class="apidocSignatureSpan">(item, marshal)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.marshalingCommands.8">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.marshalingCommands.</span>8
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.dynamodb-marshaler.toJS">module dynamodb-marshaler.toJS</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.toJS.toJS">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>toJS
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.dynamodb-marshaler.unexpectedItemHandler">module dynamodb-marshaler.unexpectedItemHandler</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.unexpectedItemHandler.unexpectedItemHandler">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>unexpectedItemHandler
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.dynamodb-marshaler.unmarshal">module dynamodb-marshaler.unmarshal</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.unmarshal.unmarshal">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>unmarshal
+            <span class="apidocSignatureSpan">(target)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.dynamodb-marshaler.unmarshalJson">module dynamodb-marshaler.unmarshalJson</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.unmarshalJson.unmarshalJson">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>unmarshalJson
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.dynamodb-marshaler.unmarshalingCommands">module dynamodb-marshaler.unmarshalingCommands</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.unmarshalingCommands.0">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.unmarshalingCommands.</span>0
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.unmarshalingCommands.1">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.unmarshalingCommands.</span>1
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.unmarshalingCommands.2">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.unmarshalingCommands.</span>2
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.unmarshalingCommands.3">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.unmarshalingCommands.</span>3
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.unmarshalingCommands.4">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.unmarshalingCommands.</span>4
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.unmarshalingCommands.5">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.unmarshalingCommands.</span>5
+            <span class="apidocSignatureSpan">(item, unmarshal)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.unmarshalingCommands.6">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.unmarshalingCommands.</span>6
+            <span class="apidocSignatureSpan">(item, unmarshal)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dynamodb-marshaler.unmarshalingCommands.7">
+            function <span class="apidocSignatureSpan">dynamodb-marshaler.unmarshalingCommands.</span>7
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.dynamodb-marshaler" id="apidoc.module.dynamodb-marshaler">module dynamodb-marshaler</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.ensureItemIsObject" id="apidoc.element.dynamodb-marshaler.ensureItemIsObject">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>ensureItemIsObject
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ensureItemIsObject(fn) {
+  return function(item) {
+    if (_.isPlainObject(item)) {
+      return fn(item);
+    }
+    throw new TypeError(&#x27;Item must be plain object literal&#x27;);
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.marshal" id="apidoc.element.dynamodb-marshaler.marshal">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>marshal
+        <span class="apidocSignatureSpan">(target)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function fn(target) {
+  var result;
+
+  for (var j = 0; j &#x3c; commands.length; j += 1) {
+    result = commands[j](target, fn);
+
+    if (result !== void 0) {
+      break;
+    }
+  }
+
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.marshalItem" id="apidoc.element.dynamodb-marshaler.marshalItem">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>marshalItem
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">marshalItem = function (item) {
+  if (_.isPlainObject(item)) {
+    return fn(item);
+  }
+  throw new TypeError(&#x27;Item must be plain object literal&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.marshalJson" id="apidoc.element.dynamodb-marshaler.marshalJson">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>marshalJson
+        <span class="apidocSignatureSpan">(json)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function marshalJson(json) {
+  return marshalItem(JSON.parse(json));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.toDDB" id="apidoc.element.dynamodb-marshaler.toDDB">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>toDDB
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toDDB = function (item) {
+  if (_.isPlainObject(item)) {
+    return fn(item);
+  }
+  throw new TypeError(&#x27;Item must be plain object literal&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.toJS" id="apidoc.element.dynamodb-marshaler.toJS">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>toJS
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toJS = function (item) {
+  if (_.isPlainObject(item)) {
+    return fn(item);
+  }
+  throw new TypeError(&#x27;Item must be plain object literal&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.unexpectedItemHandler" id="apidoc.element.dynamodb-marshaler.unexpectedItemHandler">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>unexpectedItemHandler
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unexpectedItemHandler() {
+  throw new TypeError(&#x27;Encountered unexpected item&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.unmarshal" id="apidoc.element.dynamodb-marshaler.unmarshal">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>unmarshal
+        <span class="apidocSignatureSpan">(target)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function fn(target) {
+  var result;
+
+  for (var j = 0; j &#x3c; commands.length; j += 1) {
+    result = commands[j](target, fn);
+
+    if (result !== void 0) {
+      break;
+    }
+  }
+
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.unmarshalItem" id="apidoc.element.dynamodb-marshaler.unmarshalItem">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>unmarshalItem
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">unmarshalItem = function (item) {
+  if (_.isPlainObject(item)) {
+    return fn(item);
+  }
+  throw new TypeError(&#x27;Item must be plain object literal&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.unmarshalJson" id="apidoc.element.dynamodb-marshaler.unmarshalJson">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>unmarshalJson
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unmarshalJson(item) {
+  return JSON.stringify(unmarshalItem(item));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.dynamodb-marshaler.ensureItemIsObject" id="apidoc.module.dynamodb-marshaler.ensureItemIsObject">module dynamodb-marshaler.ensureItemIsObject</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.ensureItemIsObject.ensureItemIsObject" id="apidoc.element.dynamodb-marshaler.ensureItemIsObject.ensureItemIsObject">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>ensureItemIsObject
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ensureItemIsObject(fn) {
+  return function(item) {
+    if (_.isPlainObject(item)) {
+      return fn(item);
+    }
+    throw new TypeError(&#x27;Item must be plain object literal&#x27;);
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.dynamodb-marshaler.marshal" id="apidoc.module.dynamodb-marshaler.marshal">module dynamodb-marshaler.marshal</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.marshal.marshal" id="apidoc.element.dynamodb-marshaler.marshal.marshal">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>marshal
+        <span class="apidocSignatureSpan">(target)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function fn(target) {
+  var result;
+
+  for (var j = 0; j &#x3c; commands.length; j += 1) {
+    result = commands[j](target, fn);
+
+    if (result !== void 0) {
+      break;
+    }
+  }
+
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.dynamodb-marshaler.marshalItem" id="apidoc.module.dynamodb-marshaler.marshalItem">module dynamodb-marshaler.marshalItem</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.marshalItem.marshalItem" id="apidoc.element.dynamodb-marshaler.marshalItem.marshalItem">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>marshalItem
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">marshalItem = function (item) {
+  if (_.isPlainObject(item)) {
+    return fn(item);
+  }
+  throw new TypeError(&#x27;Item must be plain object literal&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.dynamodb-marshaler.marshalJson" id="apidoc.module.dynamodb-marshaler.marshalJson">module dynamodb-marshaler.marshalJson</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.marshalJson.marshalJson" id="apidoc.element.dynamodb-marshaler.marshalJson.marshalJson">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>marshalJson
+        <span class="apidocSignatureSpan">(json)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function marshalJson(json) {
+  return marshalItem(JSON.parse(json));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.dynamodb-marshaler.marshalingCommands" id="apidoc.module.dynamodb-marshaler.marshalingCommands">module dynamodb-marshaler.marshalingCommands</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.marshalingCommands.0" id="apidoc.element.dynamodb-marshaler.marshalingCommands.0">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.marshalingCommands.</span>0
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function marshalString(item) {
+  if (!_.isString(item) || _.isEmpty(item)) {
+    return undefined;
+  }
+
+  return {S: item};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.marshalingCommands.1" id="apidoc.element.dynamodb-marshaler.marshalingCommands.1">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.marshalingCommands.</span>1
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function marshalNumber(item) {
+  if (!_.isNumber(item)) {
+    return undefined;
+  }
+
+  return {N: item.toString()};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.marshalingCommands.2" id="apidoc.element.dynamodb-marshaler.marshalingCommands.2">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.marshalingCommands.</span>2
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function marshalBoolean(item) {
+  if (!_.isBoolean(item)) {
+    return undefined;
+  }
+
+  return {BOOL: item};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.marshalingCommands.3" id="apidoc.element.dynamodb-marshaler.marshalingCommands.3">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.marshalingCommands.</span>3
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function marshalNull(item) {
+  if (!_.isNil(item)) {
+    return undefined;
+  }
+
+  return {NULL: true};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.marshalingCommands.4" id="apidoc.element.dynamodb-marshaler.marshalingCommands.4">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.marshalingCommands.</span>4
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function marshalStringSet(item) {
+  if (_.isArray(item)) {
+    return marshalArrayToStringSet(item);
+  }
+
+  return undefined;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.marshalingCommands.5" id="apidoc.element.dynamodb-marshaler.marshalingCommands.5">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.marshalingCommands.</span>5
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function marshalNumberSet(item) {
+  if (_.isArray(item)) {
+    return marshalArrayToNumberSet(item);
+  }
+
+  return undefined;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.marshalingCommands.6" id="apidoc.element.dynamodb-marshaler.marshalingCommands.6">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.marshalingCommands.</span>6
+        <span class="apidocSignatureSpan">(item, marshal)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function marshalList(item, marshal) {
+  if (!_.isArray(item)) {
+    return undefined;
+  }
+
+  return {L: _.map(item, marshal)};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.marshalingCommands.7" id="apidoc.element.dynamodb-marshaler.marshalingCommands.7">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.marshalingCommands.</span>7
+        <span class="apidocSignatureSpan">(item, marshal)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function marshalMap(item, marshal) {
+  if (!_.isPlainObject(item)) {
+    return undefined;
+  }
+
+  return {M: _.mapValues(item, marshal)};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.marshalingCommands.8" id="apidoc.element.dynamodb-marshaler.marshalingCommands.8">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.marshalingCommands.</span>8
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unexpectedItemHandler() {
+  throw new TypeError(&#x27;Encountered unexpected item&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.dynamodb-marshaler.toJS" id="apidoc.module.dynamodb-marshaler.toJS">module dynamodb-marshaler.toJS</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.toJS.toJS" id="apidoc.element.dynamodb-marshaler.toJS.toJS">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>toJS
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toJS = function (item) {
+  if (_.isPlainObject(item)) {
+    return fn(item);
+  }
+  throw new TypeError(&#x27;Item must be plain object literal&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.dynamodb-marshaler.unexpectedItemHandler" id="apidoc.module.dynamodb-marshaler.unexpectedItemHandler">module dynamodb-marshaler.unexpectedItemHandler</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.unexpectedItemHandler.unexpectedItemHandler" id="apidoc.element.dynamodb-marshaler.unexpectedItemHandler.unexpectedItemHandler">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>unexpectedItemHandler
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unexpectedItemHandler() {
+  throw new TypeError(&#x27;Encountered unexpected item&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.dynamodb-marshaler.unmarshal" id="apidoc.module.dynamodb-marshaler.unmarshal">module dynamodb-marshaler.unmarshal</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.unmarshal.unmarshal" id="apidoc.element.dynamodb-marshaler.unmarshal.unmarshal">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>unmarshal
+        <span class="apidocSignatureSpan">(target)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function fn(target) {
+  var result;
+
+  for (var j = 0; j &#x3c; commands.length; j += 1) {
+    result = commands[j](target, fn);
+
+    if (result !== void 0) {
+      break;
+    }
+  }
+
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.dynamodb-marshaler.unmarshalJson" id="apidoc.module.dynamodb-marshaler.unmarshalJson">module dynamodb-marshaler.unmarshalJson</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.unmarshalJson.unmarshalJson" id="apidoc.element.dynamodb-marshaler.unmarshalJson.unmarshalJson">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.</span>unmarshalJson
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unmarshalJson(item) {
+  return JSON.stringify(unmarshalItem(item));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.dynamodb-marshaler.unmarshalingCommands" id="apidoc.module.dynamodb-marshaler.unmarshalingCommands">module dynamodb-marshaler.unmarshalingCommands</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.unmarshalingCommands.0" id="apidoc.element.dynamodb-marshaler.unmarshalingCommands.0">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.unmarshalingCommands.</span>0
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unmarshalPassThrough(item) {
+  var key = _.find([&#x27;S&#x27;, &#x27;B&#x27;, &#x27;BS&#x27;, &#x27;BOOL&#x27;], function(type) {
+    return _.has(item, type);
+  });
+
+  if (!key) {
+    return undefined;
+  }
+
+  return item[key];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.unmarshalingCommands.1" id="apidoc.element.dynamodb-marshaler.unmarshalingCommands.1">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.unmarshalingCommands.</span>1
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unmarshalNumber(item) {
+  if (!_.has(item, &#x27;N&#x27;)) {
+    return undefined;
+  }
+
+  return parseFloat(item.N);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.unmarshalingCommands.2" id="apidoc.element.dynamodb-marshaler.unmarshalingCommands.2">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.unmarshalingCommands.</span>2
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unmarshalStringSet(item) {
+  if (!_.has(item, &#x27;SS&#x27;)) {
+    return undefined;
+  }
+
+  return item.SS;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.unmarshalingCommands.3" id="apidoc.element.dynamodb-marshaler.unmarshalingCommands.3">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.unmarshalingCommands.</span>3
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unmarshalNumberSet(item) {
+  if (!_.has(item, &#x27;NS&#x27;)) {
+    return undefined;
+  }
+
+  return _.map(item.NS, parseFloat);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.unmarshalingCommands.4" id="apidoc.element.dynamodb-marshaler.unmarshalingCommands.4">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.unmarshalingCommands.</span>4
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unmarshalNull(item) {
+  if (!_.has(item, &#x27;NULL&#x27;)) {
+    return undefined;
+  }
+
+  return null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.unmarshalingCommands.5" id="apidoc.element.dynamodb-marshaler.unmarshalingCommands.5">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.unmarshalingCommands.</span>5
+        <span class="apidocSignatureSpan">(item, unmarshal)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unmarshalMap(item, unmarshal) {
+  if (!_.has(item, &#x27;M&#x27;)) {
+    return undefined;
+  }
+
+  return _.mapValues(item.M, unmarshal);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.unmarshalingCommands.6" id="apidoc.element.dynamodb-marshaler.unmarshalingCommands.6">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.unmarshalingCommands.</span>6
+        <span class="apidocSignatureSpan">(item, unmarshal)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unmarshalList(item, unmarshal) {
+  if (!_.has(item, &#x27;L&#x27;)) {
+    return undefined;
+  }
+
+  return _.map(item.L, unmarshal);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dynamodb-marshaler.unmarshalingCommands.7" id="apidoc.element.dynamodb-marshaler.unmarshalingCommands.7">
+        function <span class="apidocSignatureSpan">dynamodb-marshaler.unmarshalingCommands.</span>7
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unexpectedItemHandler() {
+  throw new TypeError(&#x27;Encountered unexpected item&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
