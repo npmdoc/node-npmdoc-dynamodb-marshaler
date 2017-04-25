@@ -1,4 +1,7 @@
-# api documentation for  [dynamodb-marshaler (v2.0.0)](https://github.com/CascadeEnergy/dynamoDb-marshaler#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-dynamodb-marshaler.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-dynamodb-marshaler) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-dynamodb-marshaler.svg)](https://travis-ci.org/npmdoc/node-npmdoc-dynamodb-marshaler)
+# npmdoc-dynamodb-marshaler
+
+#### basic api documentation for  [dynamodb-marshaler (v2.0.0)](https://github.com/CascadeEnergy/dynamoDb-marshaler#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-dynamodb-marshaler.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-dynamodb-marshaler) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-dynamodb-marshaler.svg)](https://travis-ci.org/npmdoc/node-npmdoc-dynamodb-marshaler)
+
 #### Translates sane javascript objects (and JSON) into DynamoDb format and vice versa.
 
 [![NPM](https://nodei.co/npm/dynamodb-marshaler.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/dynamodb-marshaler)
@@ -69,7 +72,8 @@
         "lint": "jshint .",
         "test": "mocha --recursive"
     },
-    "version": "2.0.0"
+    "version": "2.0.0",
+    "bin": {}
 }
 ```
 
